@@ -3,11 +3,11 @@ import { PreviousSearches } from './gifs/components/PreviousSearches';
 import { CustomHeader } from './shared/components/CustomHeader';
 import { SearchBar } from './shared/components/SearchBar';
 import { mockGifs } from './mock-data/gifsmock.mock';
-import { useSearch } from './gifs/hooks/useSearch';
+import { useGifSearch } from './gifs/hooks/useGifSearch';
 
 export const App = () => {
-  const { gifs, previousTerm, handleSearch, handlePreviousSearchClicked } =
-    useSearch();
+  const { gifs, handleSearch, history, handlePreviousSearchClicked } =
+    useGifSearch();
 
   return (
     <>
@@ -25,7 +25,7 @@ export const App = () => {
 
       {/* //** Previous search */}
       <PreviousSearches
-        searches={previousTerm}
+        searches={history}
         handlePreviousSearchClicked={handlePreviousSearchClicked}
       />
 
